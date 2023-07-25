@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width:100%;
+            height:100vh;
+            background: url("./photo1458442310124dd.png") center center;
+            background-color: rgba(122, 115, 115, 0.918);
+            background-size:cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+        }
+        .text{
+           width:100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           
+        }
+        #para{
+            color: rgb(7, 4, 4);
+            font-size: 24px;
+
+        }
+        .text1{
+           width:100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+          }
+        #para1{
+            color: rgb(7, 4, 4);
+            font-size: 24px;
+
+        }
+        .text2{
+           width:60%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+          
+           ;
+          }
+        #para2{
+            color: rgb(7, 4, 4);
+            font-size: 24px;
+          }
+          .inputs{
+             display: flex;
+           justify-content: center;
+           align-items: center;
+           gap:30px;
+          }
+          .val{
+            text-align: center;
+            margin-top: 10px;
+          }
+          input{
+            height:60px;
+            width:60px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 24px;
+          }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+      <div class="text">
+        <p id="para">We are the future of next generataion</p>
+      </div>
+      <div class="text1">
+        <p id="para1">Launching our course on 21 July 2023 10:00 PM</p>
+      </div>
+      <div class="text2">
+        <p id="para2">Launching....</p>
+      </div>
+      <div class="inputs">
+        <div class="val">
+            <input type="text" readonly value="0">
+            <br>
+            Days
+
+        </div>
+        <div class="val">
+            <input type="text"  readonly value="0">
+            <br>
+            Hours
+        </div>
+         <div class="val">
+            <input type="text"  readonly value="0">
+            <br>
+            Minutes
+        </div>
+         <div class="val">
+            <input type="text"  readonly value="0">
+            <br>
+            Seconds
+        </div>
+       
+      </div>
+    </div>
+
+ <script>
+    const endDate="21 July 2023 11:29 AM";
+    document.getElementById("para1").innerHTML=endDate;
+    
+    function clock(){
+      const end=new Date(endDate);
+      const start=new Date();
+      // console.log(end);
+      // console.log(start);
+     
+     const diff=(end-start)/1000;
+    //  console.log(diff);
+
+     const inp=document.querySelectorAll("input");
+     if(diff<0) return;
+     inp[0].value=Math.floor(diff/3600/24);
+
+     inp[1].value=Math.floor(diff/3600%24);
+     inp[2].value=Math.floor(diff/60%60);
+     inp[3].value=Math.floor(diff%60);
+
+    }
+    
+    clock();
+    setInterval(()=>{
+           clock();
+    }
+    ,1000 )
+
+    
+ </script>
+    
+</body>
+</html>
